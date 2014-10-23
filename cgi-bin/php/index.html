@@ -1,0 +1,102 @@
+<html>
+<head>
+	<title>AngryAnts Development Tool</title>
+</head>
+<body>
+	<h1>AngryAnts Development Tool</h1><br/>
+	<br/><br/>
+	<a href="AntTracer.html">Game Here!!!</a>
+	<br/><br/>
+	<span>To view the entire database, please <a href="http://yi-huang.org/phpmyadmin/">Click Here</a> and log in with username "tester"</span><br/>
+	<span>The password is "ants". Please <b>NEVER</b> change it.</span><br/>
+	<span>We are currently using "testants" database</span>
+	<h1>Create game account</h1>
+	<span>Submitting the following form will result in adding a new user with specified username and password in the database.</span><br/><br/>
+	<span>Sending POST request with parameter string "username=newusername&amppassword=newpassword" to </span><br/>
+	<span>http://yi-huang.org/AngryAnts/adduser.php should do the same thing.</span>
+	<form action="adduser.php" method="POST">
+		<span>Username:</span>
+		<input type="text" name="username"/><br/>
+		<span>Password:</span>
+		<input type="text" name="password"/><br/>
+		<input type="submit"/><br/>
+	</form><br/>
+	<h1>Log in with game account</h1>
+	<span>Submitting the following form will have server check whether the username and password are valid.</span><br/>
+	<span>If yes, a random credential, user's highest score, and other information will be returned.</span><br/><br/>
+	<span>Sending POST request with parameter string "username=yourusername&amppassword=yourpassword" to </span><br/>
+	<span>http://yi-huang.org/AngryAnts/processlogin.php should do the same thing.</span>
+	<form action="processlogin.php" method="POST">
+		<span>Username:</span>
+		<input type="text" name="username"><br/>
+		<span>Password:</span>
+		<input type="text" name="password"/><br/>
+		<input type="submit"/><br/>
+	</form><br/>
+	<h1>Pick Ant</h1>
+	<span>Submitting this form will give you a video id and an ant id.</span><br/><br/>
+	<span>Sending POST request with an empty string to http://yi-huang.org/AngryAnts/pickant.php should do the same thing.</span>
+	<form action="pickant.php" method="POST">
+		<input type="submit"><br/>
+	</form><br/>
+	<h1>File upload</h1>
+	<span>For this part, webpage-based testing tool is not available because it is different from uploading from java.</span><br/>
+	<span>If you are using the function I provided in email, the following code is an example:</span><br/>
+	<pre><span style='color: Teal; background-color: '>  1</span>     <span style=' color: Blue;'>public</span> <span style=' color: Blue;'>static</span> <span style=' color: Blue;'>void</span> main(String[] args) {
+	<span style='color: Teal; background-color: '>  2</span>         System.out.println(excutePost(<span style=' color: Maroon;'>"http://yi-huang.org/AngryAnts/handleupload.php?vid=1&amp;vid2=b&amp;aid=2&amp;credential=player38783959gb2qdprrws6c9unk3cdd4kzlg"</span>, 
+	<span style='color: Teal; background-color: '>  3</span>                 <span style=' color: Maroon;'>"File content goes here. (NOTE: Only File Content)"</span>)); 
+	<span style='color: Teal; background-color: '>  4</span>     }</pre><br/>
+	<span>Note that this is a little bit different from creating account/login. This time we need to APPEND PARAMETER STRING TO THE END OF URL in order to use GET method. And the urlParameters should be only the content of the file.</span><br/>
+	<span>And here is the function just in case you do not have it (I did not wrote this. This is from StackOverflow):</span><br/><br/>
+	<pre><span style='color: Teal; background-color: '>  1</span>     <span style=' color: Blue;'>public</span> <span style=' color: Blue;'>static</span> String excutePost(String targetURL, String urlParameters) {
+	<span style='color: Teal; background-color: '>  2</span>         URL url; 
+	<span style='color: Teal; background-color: '>  3</span>         HttpURLConnection connection = <span style=' color: Blue;'>null</span>;
+	<span style='color: Teal; background-color: '>  4</span>         <span style=' color: Blue;'>try</span> { 
+	<span style='color: Teal; background-color: '>  5</span>             <span style=' color: Green;'>// Create connection</span> 
+	<span style='color: Teal; background-color: '>  6</span>             url = <span style=' color: Blue;'>new</span> URL(targetURL); 
+	<span style='color: Teal; background-color: '>  7</span>             connection = (HttpURLConnection) url.openConnection(); 
+	<span style='color: Teal; background-color: '>  8</span>             connection.setRequestMethod(<span style=' color: Maroon;'>"POST"</span>); 
+	<span style='color: Teal; background-color: '>  9</span>             connection.setRequestProperty(<span style=' color: Maroon;'>"Content-Type"</span>, 
+	<span style='color: Teal; background-color: '> 10</span>                     <span style=' color: Maroon;'>"application/x-www-form-urlencoded"</span>); 
+	<span style='color: Teal; background-color: '> 11</span>  
+	<span style='color: Teal; background-color: '> 12</span>             connection.setRequestProperty(<span style=' color: Maroon;'>"Content-Length"</span>, 
+	<span style='color: Teal; background-color: '> 13</span>                     <span style=' color: Maroon;'>""</span> + Integer.toString(urlParameters.getBytes().length)); 
+	<span style='color: Teal; background-color: '> 14</span>             connection.setRequestProperty(<span style=' color: Maroon;'>"Content-Language"</span>, <span style=' color: Maroon;'>"en-US"</span>); 
+	<span style='color: Teal; background-color: '> 15</span>  
+	<span style='color: Teal; background-color: '> 16</span>             connection.setUseCaches(<span style=' color: Maroon;'>false</span>);
+	<span style='color: Teal; background-color: '> 17</span>             connection.setDoInput(<span style=' color: Maroon;'>true</span>);
+	<span style='color: Teal; background-color: '> 18</span>             connection.setDoOutput(<span style=' color: Maroon;'>true</span>);
+	<span style='color: Teal; background-color: '> 19</span>  
+	<span style='color: Teal; background-color: '> 20</span>             <span style=' color: Green;'>// Send request</span> 
+	<span style='color: Teal; background-color: '> 21</span>             DataOutputStream wr = <span style=' color: Blue;'>new</span> DataOutputStream(
+	<span style='color: Teal; background-color: '> 22</span>                     connection.getOutputStream()); 
+	<span style='color: Teal; background-color: '> 23</span>             wr.writeBytes(urlParameters); 
+	<span style='color: Teal; background-color: '> 24</span>             wr.flush(); 
+	<span style='color: Teal; background-color: '> 25</span>             wr.close(); 
+	<span style='color: Teal; background-color: '> 26</span>  
+	<span style='color: Teal; background-color: '> 27</span>             <span style=' color: Green;'>// Get Response</span> 
+	<span style='color: Teal; background-color: '> 28</span>             InputStream is = connection.getInputStream(); 
+	<span style='color: Teal; background-color: '> 29</span>             BufferedReader rd = <span style=' color: Blue;'>new</span> BufferedReader(<span style=' color: Blue;'>new</span> InputStreamReader(is));
+	<span style='color: Teal; background-color: '> 30</span>             String line; 
+	<span style='color: Teal; background-color: '> 31</span>             StringBuffer response = <span style=' color: Blue;'>new</span> StringBuffer();
+	<span style='color: Teal; background-color: '> 32</span>             while ((line = rd.readLine()) != <span style=' color: Blue;'>null</span>) {
+	<span style='color: Teal; background-color: '> 33</span>                 response.append(line); 
+	<span style='color: Teal; background-color: '> 34</span>                 response.append(<span style=' color: Maroon;'>'\r'</span>); 
+	<span style='color: Teal; background-color: '> 35</span>             } 
+	<span style='color: Teal; background-color: '> 36</span>             rd.close(); 
+	<span style='color: Teal; background-color: '> 37</span>             <span style=' color: Blue;'>return</span> response.toString(); 
+	<span style='color: Teal; background-color: '> 38</span>  
+	<span style='color: Teal; background-color: '> 39</span>         } <span style=' color: Blue;'>catch</span> (Exception e) { 
+	<span style='color: Teal; background-color: '> 40</span>  
+	<span style='color: Teal; background-color: '> 41</span>             e.printStackTrace(); 
+	<span style='color: Teal; background-color: '> 42</span>             <span style=' color: Blue;'>return</span> <span style=' color: Blue;'>null</span>;
+	<span style='color: Teal; background-color: '> 43</span>  
+	<span style='color: Teal; background-color: '> 44</span>         } <span style=' color: Blue;'>finally</span> { 
+	<span style='color: Teal; background-color: '> 45</span>  
+	<span style='color: Teal; background-color: '> 46</span>             <span style=' color: Blue;'>if</span> (connection != <span style=' color: Blue;'>null</span>) {
+	<span style='color: Teal; background-color: '> 47</span>                 connection.disconnect();
+	<span style='color: Teal; background-color: '> 48</span>             } 
+	<span style='color: Teal; background-color: '> 49</span>         } 
+	<span style='color: Teal; background-color: '> 50</span>     }</pre>
+</body>
+</html>

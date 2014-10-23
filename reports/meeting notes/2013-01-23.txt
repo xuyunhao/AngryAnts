@@ -1,0 +1,18 @@
+messy notes by Livio:
+
+make the game portable
+allow different videos to be tracked for different groups of people
+	basically so that people can track videos from the school they want to support.
+ask people to trace the starting points of ants
+
+modular pieces:
+	different game modes
+	different validation algorithms
+	different videos
+
+how to pass files? use cgi script?
+use one central database rather than multiple databases
+experiment with data gathered
+experiment with validation
+
+need documentation to help newcomers to the project learn what's going on

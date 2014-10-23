@@ -1,0 +1,294 @@
+
+\documentclass[12pt]{article}
+\usepackage{float}
+\usepackage{amsmath}    % need for subequations
+\usepackage{amssymb}    % need for subequations
+\usepackage{amsthm}    % need for subequations
+\usepackage{graphicx}   % need for figures
+\usepackage{verbatim}   % useful for program listings
+\usepackage{color}      % use if color is used in text
+\usepackage{subfigure}  % use for side-by-side figures
+\usepackage{hyperref}   % use for hypertext links, including those to external documents and URLs
+\usepackage{enumitem}
+\usepackage{color}
+
+
+% don't need the following. simply use defaults
+\setlength{\baselineskip}{16.0pt}    % 16 pt usual spacing between lines
+
+\setlength{\parskip}{3pt plus 2pt}
+\setlength{\parindent}{20pt}
+\setlength{\oddsidemargin}{0.5cm}
+\setlength{\evensidemargin}{0.5cm}
+\setlength{\marginparsep}{0.75cm}
+\setlength{\marginparwidth}{2.5cm}
+\setlength{\marginparpush}{1.0cm}
+\setlength{\textwidth}{150mm}
+
+% New commands
+\newcommand{\dc}{\mathrm{DC}}
+\newcommand{\NP}{\textnormal{\texttt{NP}}\xspace}
+\newcommand{\NPH}{\textnormal{\texttt{NP}}-hard\xspace}
+\newcommand{\NPC}{\textnormal{\texttt{NP}}-complete\xspace}
+\newcommand{\prp}{DC-Property\xspace}
+\newtheorem{dfproperty}{\prp}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+
+
+\begin{comment}
+\pagestyle{empty} % use if page numbers not wanted
+\end{comment}
+
+% above is the preamble
+
+\begin{document}
+\begin{enumerate}
+\item Added tucson to affiliation
+ 
+Done
+\item removed compress
+
+done
+\item caption for table 1 was brought to the top as required by LNCS. 
+
+done
+\item change references to include the volume editor names.
+
+TODO
+
+\item removed all vspace.
+
+
+\item Pg2: remark about constant speed, then trajectory is a polyline. I am not sure what you mean exactly, but you can walk on a circle at constant speed, and the trajectory generated is not a polyline.
+
+changed speed to velocity.
+
+\item Pg 3: In "Local Median", "average points"->"median points"?
+
+done
+
+\item Pg 3: "several different orders": how are they chosen?
+
+Changed it to several different random orders
+
+\item Pg 4: "additional obstacles": additional? So what are the other obstacles?
+
+removed the word additional.
+
+\item Pg 4: The "buffer median": there is a newer version of [18] that appeared in ACM GIS 2011, pages 241-250, where the "buffer median" was renamed to "majority median".
+
+changed the reference and stated that buffer median is also known as majority median.
+
+\item { Pg 6: I would at least add a note saying that, obviously, the Disjoint Paths Problem as defined in [13] does not refer to the "ant-conservation condition", but to Eulerian graphs.
+}
+
+added the line 
+
+The
+DISJOINT PATHS problem as defined in [13] does not refer to the ”ant-conservation
+condition”, but to Eulerian graphs.
+
+\item Pg 6: The description of the greedy algorithm is a bit confusing. When you say that the algorithm finds the longest path "for some i" and "some j", what do you mean exactly? For just one pair (i,j)? For all? Please be more precise.
+
+changed it to The algorithm finds the longest path among all source destination pairs $s_i$, $t_j$.
+
+\item Pg 6: Also there, "and proceed with the next path", next *longest* path?
+
+added longest
+
+\item Pg 8: line -2: "to miss entire pieces": remove "to".
+
+removed to
+
+\item \textcolor{blue}{Pg 8: Remark about "careful tuning". I was a bit concerned to read that you used the default values for the algorithms that are parametrized. Do these default values have any meaning? Otherwise it may be very unfair to the methods, if these values were not set with some reasonable criterion.
+}
+
+TODO 
+\item {Pg 9: In principle, I would say that your statements about how well the global methods perform in comparison with the automated solution contradict Fig. 5. In Fig 5a, the automated solution seems to have smaller RMSE than Global ILP for 7 out of 10 of the ants. Moreover, it seems to track a higher percentage of ants than all of the other methods for most of the time in the video of Fig 5(b), although that could be a consequence of the peculiarities of the ground truth set. It would be good if you could justify this better in the text, before stating so strongly that the global methods outperforms the automated one.
+}
+
+added the sentence "The global approaches perform better in all the trajectories where the results differ
+significantly.
+"
+
+\item Pg 10: "oneThus"->"one. Thus".
+
+Done
+
+\item Pg 10: something wrong in sentence "Although we cannot...".
+
+Although we cannot definitively measure their accuracy,
+from the real-world dataset with
+our real citizen scientists, we have estimated $P(error)=0.02$, 
+
+
+\item \textcolor{blue}{Pg 10: "Not surprisingly, precision is higher for short videos": Don’t you say in the previous page that the global method "naturally resolve" this problem of tracking degrading with time?
+}
+
+TODO
+
+\item Pg 14. "It easy to see", missing "is".
+
+Done
+
+
+
+
+\item - p1: "is by hand" insert "still"?
+
+done
+
+\item {P- The related work on finding middle/median/... trajectories is not complete. For computing a mean trajectory a missing reference is
+Etienne, Devogele, Bouju. Spatio-Temporal Trajectory Analysis of Mobile Objects following the same Itinerary, In Proceedings of the International Symposium on Spatial Data Handling (SDH), 2010.
+Then you give one reference on Frechet distance and one on using distances at corresponding times for similarity. You should make clearer that there are many more approaches and references on trajectory similarity (even on these two measures) and why you reference these two.
+}
+
+Added "The problem of computing the most likely trajectory from a set of
+given trajectories has been studied in many different contexts and here we mention a few examples, which are similar to our approach." 
+\item - p2: "most expensive algorithms" be more specific, e.g., "most expensive tracking algorithms" or give a reference
+
+added reference and also added the word tracking.
+
+\item {- p2: Paragraph starting "Consider" gives a problem description and paragraph starting "We designed" your results. Labeling as such would improve the structure.
+}
+
+added labels. Our results and Problem statement.
+
+\item {- Perhaps somewhere say what you understand to be inaccurate. In trajectory analysis, an inaccurate trajectory is typically one where locations are off by some error. Here, you mean that in fact trajectories of different ants are mixed up.
+}
+
+we define it in the results section "we consider the ant correctly tracked if the distance
+between the ground truth and our trajectory is less than 15 pixels (typical width of ant head)."
+
+we also define precision as "The precision is measured as the fraction of correctly identified edges in G: a value
+of 1 means that all paths are correct."
+
+
+\item - p3: you use 'Frechet' as shorthand for Frechet matchings. Until you introduce this (2nd to last paragraph on p3) I would refer to 'Frechet matchings' (i.e., on p3 top), and then say that you use this shorthand ('Frechet' itself is simply a French name, and could refer to the distance measure, matching, ...)
+
+added the word matching after Frechet.
+
+\item - p3 top: perhaps explicitly repeat that the global approach considers "all-ants-together", e.g., write "a novel global method in the all-ants-together setting. This approach is based.."
+
+done. Changed to 
+We
+also designed and implemented 
+a novel global
+method  
+in the all-ants-together setting. This approach is 
+based on finding edge-disjoint paths in an interaction graph,
+
+
+\item - p3 "is the one that averages locations" shorter simply "averages the locations"
+
+done
+
+
+\item - p3 "Frechet distance.. is the min dog-leash.." I would say "Frechet distance.. can be illustrated as the min dog-leash.."
+
+done
+
+\item - p3 Since there are more ways to define a 2d median, perhaps say "we choose as median the point" or similar
+
+done
+
+\item {- p3 I wouldn't say your iterative approach to computing Frechet consensus curve is similar to the algorithm of Dumitrescu and Rote [5], which compute all pairwise distances and then minimize the maximum.}
+
+removed "similar to [5]".
+
+\item { The number of orders you try, 50, does not give any information for the reader not knowing the number of trajectories and ants.}
+
+Moved this information to the result section after we provide all the above mentioned information.
+
+In the Frechet approach 
+ we tried $50$  different random orders
+in which the
+trajectories are merged.
+
+ \item {A Frechet alignment does not completely ignore timestamps, but only uses the order.}
+
+Frechet alignment of trajectories uses only the order and
+ignores the timestamps that are
+an essential feature of our input.
+
+ \item {- p4 "Using a modification of the k-means clustering algorithm" specifically refer to Lloyd's algorithm (a modification of the k-means clustering algorithm). How/why can you get less than k clusters?}
+
+"Our clustering algorithm differs from the classical
+k-means in that it always merges the points into one cluster located closer than 50
+pixels from each other."
+
+\item {- p5 Perhaps say why you use medians in Step 3 (although it seems fairly natural)}
+
+ignored.. 
+
+\item {- p6 Mention that the exact algorithm uses DP.}
+
+ done. added in the theorm "via dynamic programming"
+
+\item {- p8 "As expected, the greedy ... within a minute." I would move these two sentences to the results.}
+
+MOved these 2 lines to result section. Also added the word real world.
+
+As expected, the greedy algorithm, with complexity dependent
+linearly on the size of the graph, finishes in under few milliseconds.
+The ILP is also relatively quick on the real world dataset, computing the optimal solution within a minute.
+
+
+\item - p9 "The two global approaches perform similarly" add "with respect to quality" (or similar).
+
+done
+
+ \item {"it is important to emphasize here" insert "that" (or reformulate)}
+
+done
+ \item {"see Fig. 11(a)" insert "in the Appendix".}
+
+done
+
+
+
+
+\item \textcolor{blue}{The paper claims it can beat the most sophisticated and computational expensive algorithm, but it does not give the runtime of the automated solution and does not provide details of the algorithm. They should have compared with methods cited in previous work.}
+
+\item {In the global setting, the author assume all the ants start from different positions and end in different positions, which is not always the case in reality.}
+
+removed the assumption.
+
+\item {The author does not state or prove why using SCP can solve the problem, although the experiment results are good.}
+
+ignored.
+
+\item {In the LP+Rounding algorithm, the rounding part is actually a randomized algorithm and so the experiment should do multiple tests for the same run to get an expected quality of result.
+}
+
+added line "As the latter heuristic is a randomized algorithm, we report the best
+result over 5 runs for a given input."
+
+\item {In figure 5(b), the result of Global ILP is not very good in comparison with Automated Solution and Local Median: the accuracy of Automated Solution is decreased dramatically as the number of frames gets close to 100*100, but the figure should be extended to a larger frame to verify that. The accuracy drop could be caused by other factors.}
+
+ignored.
+
+\item {There are some inconsistency in the experiments: in the real-world dataset, the ILP can be done within a minute for 50 ants, 2~8 trajectories per ant. But in figure 8(a), it states that the ILP approach is applicable only when the number of ants is small. Observing the trend in figure 8(a), ILP needs more than a minutes when k = 30.
+}
+
+"The ILP is also relatively quick on the real-world dataset, computing the optimal solution
+within a minute. On synthetic data and more erroneous real-world data 
+the ILP approach is applicable only when the number of ants is
+small, e.g., k < 25. For larger values of k, the computation of optimal disjoint paths
+takes hours."
+
+\item removed 
+
+see Fig.ref{fig:ex1} in the Appendix. 
+\item removed 
+the lines 
+
+see Fig.ref{fig:ex3} in the Appendix.
+We found an example in which 5 out of 8 input trajectories follow the
+wrong ant;
+
+\item changed reference to appendix with "See the full version [5] for the proof" 
+\end{enumerate}
+\end{document}

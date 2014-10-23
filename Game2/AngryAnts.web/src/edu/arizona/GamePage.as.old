@@ -1,0 +1,252 @@
+package edu.arizona {
+	import edu.arizona.gui.HudBar;
+	import edu.arizona.SoundManager;
+
+	import flash.display.Sprite;
+	import flash.events.Event;
+	import flash.events.IOErrorEvent;
+	import flash.events.MouseEvent;
+	import flash.geom.Point;
+	import flash.net.URLLoader;
+	import flash.net.URLLoaderDataFormat;
+	import flash.net.URLRequest;
+	import flash.net.URLRequestMethod;
+	import flash.net.URLVariables;
+	import flash.ui.Mouse;
+
+	public class GamePage extends Sprite {
+
+		public static var YOUTUBE_LOGO_HEIGHT:uint = 55;
+
+		private var yt:YouTubePlayer;
+		private var bar:HudBar;
+		private var overlay:TouchOverlay;
+		private var antId:String, videoId:String, segId:String;
+		private var knownPoints:Array;
+		private var soundMan:SoundManager;
+
+		private var isCounting:Boolean;
+
+		public function GamePage(w:uint, h:uint) {
+			soundMan = new SoundManager();
+			trace("Set Style");
+			initYouTube(w, h);
+			initOverlay(w, h);
+			initHud(w, h);
+		}
+
+		private function initYouTube(w:uint, h:uint):void {
+			yt = new YouTubePlayer(w, h - HudBar.HUD_HEIGHT + YOUTUBE_LOGO_HEIGHT * 2);
+			yt.video.y = -YOUTUBE_LOGO_HEIGHT;
+			yt.video.addEventListener("isReady", function(evt:Event):void {
+				overlay.makeReady(yt.isFirstTime());
+				bar.setDuration(yt.duration);
+				bar.setProgress(yt.count);
+				trace("IS READY: " + mouseDown);
+				if (mouseDown) {
+					onMouseClick();
+				}
+			});
+			yt.video.addEventListener("isNotReady", function(evt:Event):void {
+				overlay.makeNotReady();
+				bar.setProgress(yt.count);
+			});
+			yt.video.addEventListener(Event.COMPLETE, function(evt:Event):void {
+				bar.finish(overlay.getCircle(), w, h);
+				overlay.makeDone();
+			});
+			addChild(yt.video);
+		}
+
+		private var mouseDown:Boolean = false;
+		private var sh:uint;
+
+		private function initOverlay(w:uint, h:uint):void {
+			sh = h;
+			overlay = new TouchOverlay(w, h - HudBar.HUD_HEIGHT);
+			addEventListener(MouseEvent.MOUSE_DOWN, onMouseClick);
+			addEventListener(MouseEvent.MOUSE_UP, onMouseUp);
+			addChild(overlay);
+		}
+
+		private function onMouseClick(evt:MouseEvent = null):void {
+			mouseDown = true;
+			trace("SET: true");
+			trace(yt.isReady);
+			var yMouse:Number = this.stage.mouseY - 50;
+			if (yMouse < sh - HudBar.HUD_HEIGHT) {
+				if (!isCounting) {
+					if (yt.isFirstTime()) {
+						yt.onClick();
+					} else if (yt.isReady && yt.onClick()) {
+						bar.undoDisabled = false;
+						bar.redoDisabled = true;
+						overlay.click(this.stage.mouseX, yMouse, yt.getTime(), true, yMouse < 0);
+					}
+				} else if (yMouse >= 0) {
+					overlay.click(this.stage.mouseX, yMouse, yt.getTime());
+				}
+			}
+		}
+
+		private function onMouseUp(evt:MouseEvent):void {
+			trace("SET: false");
+			mouseDown = false;
+		}
+
+		private function initHud(w:uint, h:uint):void {
+			bar = new HudBar(w, h, yt, overlay);
+			bar.addQuitEvent(quit);
+			bar.addUndoEvent(undo);
+			bar.addRedoEvent(redo);
+			bar.addRestartEvent(restart);
+			bar.addYesEvent(submitAndQuit);
+			bar.addNoEvent(quit);
+			bar.addFinishEvent(finishSubmit);
+			addChild(bar);
+		}
+
+		public function start():void {
+			isCounting = false;
+			bar.prepareToTrack();
+			receiveStart();
+		}
+
+		private function receiveStart():void {
+			var loader:URLLoader = new URLLoader();
+			loader.dataFormat = URLLoaderDataFormat.VARIABLES;
+			loader.addEventListener(Event.COMPLETE, varsLoaded);
+			loader.addEventListener(IOErrorEvent.IO_ERROR, onIOError);
+
+			var request:URLRequest = new URLRequest("http://angryants.cs.arizona.edu/data/startGame.php");
+			loader.load(request);
+
+			function varsLoaded(event:Event):void {
+				var url1:String, url2:String, url3:String;
+				var vidWidth:int, vidHeight:int;
+
+				antId = loader.data.antId;
+				videoId = loader.data.videoId;
+				segId = loader.data.segId;
+				vidWidth = int(loader.data.width);
+				vidHeight = int(loader.data.height);
+				url1 = loader.data.url1;
+				url2 = loader.data.url2;
+				url3 = loader.data.url3;
+				knownPoints = new Array();
+				var i:int;
+				for (i = 0; i < 100; i++) {
+					var tmpStrX:String = "x" + i;
+					var tmpStrY:String = "y" + i;
+					knownPoints[i] = new Point(loader.data[tmpStrX], loader.data[tmpStrY]);
+				}
+
+				trace("antId: " + antId);
+				trace("videoId: " + videoId);
+				trace("segId: " + segId);
+				trace("vidWidth: " + vidWidth);
+				trace("vidHeight: " + vidHeight);
+				trace("url1: " + url1);
+				trace("url2: " + url2);
+				trace("url3: " + url3);
+				trace(loader.data);
+
+				overlay.prepareToTrack(knownPoints[0].x, knownPoints[0].y);
+			}
+			function onIOError(event:IOErrorEvent):void {
+				trace("Error: receiveStart()." + event);
+			}
+		}
+
+		public function startCount():void {
+			isCounting = true;
+			bar.prepareToCount();
+			overlay.prepareToCount();
+		}
+
+		private function undo(evt:MouseEvent):void {
+			if (yt.isReady) {
+				bar.undoDisabled = overlay.undo();
+				bar.redoDisabled = false;
+				yt.seekBack();
+			}
+		}
+
+		private function redo(evt:MouseEvent):void {
+			if (yt.isReady) {
+				bar.redoDisabled = overlay.redo();
+				bar.undoDisabled = false;
+				yt.seekForward();
+			}
+		}
+
+		private function restart(evt:MouseEvent = null):void {
+			Mouse.show();
+			this.receiveStart();
+			overlay.clearLastLine();
+			if(knownPoints){
+				overlay.reload(knownPoints[0], knownPoints[0]); 
+				}
+			
+			bar.undoDisabled = true;
+			bar.redoDisabled = true;
+			bar.setProgress(0);
+			bar.hideAlert();
+			bar.showOverlay();
+			yt.restart();
+			//			if (evt != null)
+			//				yt.onClick();
+		}
+
+		private function quit(evt:MouseEvent):void {
+			dispatchEvent(new Event("quit"));
+			restart();
+		}
+
+		private function submitAndQuit(evt:MouseEvent):void {
+			trace("submit!");
+
+			var path:String = "http://angryants.cs.arizona.edu/data/submit_data.php";
+			var urlRequest:URLRequest = new URLRequest(path);
+			urlRequest.method = URLRequestMethod.POST;
+
+			var postData:URLVariables = new URLVariables();
+			if (!isCounting) {
+				postData.data_type = "ANT_PATH";
+				postData.video_id = videoId;
+				postData.ant_id = antId;
+				postData.data = overlay.getAntPathData();
+				postData.segId = segId;
+			} else {
+				postData.data_type = "START_POINTS";
+				postData.video_id = videoId;
+				postData.time_frame = 0;
+				postData.data = overlay.getSartPointsData();
+			}
+			urlRequest.data = postData;
+
+			var urlLoader:URLLoader = new URLLoader();
+			urlLoader.dataFormat = URLLoaderDataFormat.TEXT;
+			urlLoader.addEventListener(Event.COMPLETE, urlLoader_complete, false, 0, true);
+			urlLoader.addEventListener(IOErrorEvent.IO_ERROR, urlLoader_error, false, 0, true);
+			urlLoader.load(urlRequest);
+
+			function urlLoader_complete(evt:Event):void {
+				trace(urlLoader.data);
+			}
+			function urlLoader_error(evt:IOErrorEvent):void {
+				trace("OMG an Error: " + evt);
+			}
+			quit(null);
+		}
+
+		private function finishSubmit(evt:MouseEvent = null):void {
+			bar.finish(overlay.getCircle(), stage.stageWidth, stage.stageHeight);
+			overlay.makeDone();
+		}
+		
+		public function returnOverlay():TouchOverlay {
+			return overlay;	
+		}
+	}
+}

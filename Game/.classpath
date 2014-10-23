@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="AngryAntsMerged/src"/>
+	<classpathentry kind="src" path="AngryAntsTest/src"/>
+	<classpathentry kind="src" path="Game Test for Macs/src"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="AngryAntsMerged/AntTracerGame/AntTracer (Stephen Kobourov&apos;s conflicted copy 2012-11-19).jar"/>
+	<classpathentry kind="lib" path="AngryAntsMerged/AntTracerGame/AntTracer.jar"/>
+	<classpathentry kind="lib" path="AngryAntsMerged/AntTracerGame/sAntTracer.jar"/>
+	<classpathentry kind="lib" path="AntTracer.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

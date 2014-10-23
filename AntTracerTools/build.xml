@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="AntTracerTools" default="default" basedir="."
+	xmlns:fx="javafx:com.sun.javafx.tools.ant">
+	<target name="default">
+
+        	<taskdef resource="com/sun/javafx/tools/ant/antlib.xml"      
+          	uri="javafx:com.sun.javafx.tools.ant"
+			classpath=".:C:\Program Files (x86)\Java\jdk1.7.0_09\lib\ant-javafx.jar"/>
+
+		<fx:application id="appId"
+       		name="AntTracerTools"
+			mainClass="controller.ToolController">
+		</fx:application>
+ 
+		<fx:resources id="appRes">    
+    			<fx:fileset dir="AntTracerTools" includes="AntTracerTools.jar"/>
+		</fx:resources>
+
+
+		<fx:jar destfile="AntTracerTools/AntTracerTool.jar">
+    			<fx:application refid="appId"/>
+            
+    			<manifest>
+        			<attribute name="Implementation-Vendor"
+                		value="Citizen Scientists for Trajectory Analysis"/>
+        			<attribute name="Implementation-Title"
+                		value="AntTracerTools"/>
+        			<attribute name="Implementation-Version" value="1.0"/>
+    			</manifest>
+
+    			<fileset dir="bin"/>
+	 	</fx:jar>
+
+
+		<!--<fx:signjar keyStore="my.keystore" destdir="AntTracerTools"
+			   alias="antAlias" storePass="fireants" keyPass="fireants"
+			   jar="AntTracerTools/AntTracerTool.jar">
+		   </fx:signjar>-->
+	  	
+ 
+		<fx:deploy width="960" height="596"
+			nativeBundles="none"	updateMode="always"
+        	outdir="AntTracerTools" embedJNLP="true"
+        	outfile="AntTracerTools">
+
+    			<fx:application refId="appId"/>
+ 
+    			<fx:resources refid="appRes"/>            
+ 
+    			<fx:info title="AntTracerTools"
+					vendor="Citizen Scientists for Trajectory Analysis"
+					description="Toolset for preparing game and analyzing
+					game results."/>
+
+				<fx:platform javafx="2.2+">
+					<fx:jvmarg value=""/>
+				</fx:platform>			
+		</fx:deploy>
+		
+	</target>
+</project>

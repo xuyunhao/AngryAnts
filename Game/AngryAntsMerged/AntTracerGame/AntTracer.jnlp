@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="AntTracer.jnlp">
+  <information>
+    <title>AntTracer</title>
+    <vendor>Citizen Scientists for Trajectory Analysis</vendor>
+    <description>A game involving tracing ants in videos.</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <jfx:javafx-runtime version="2.2+" href="http://javadl.sun.com/webapps/download/GetFile/javafx-latest/windows-i586/javafx2.jnlp"/>
+  </resources>
+  <resources>
+    <j2se version="1.6+" java-vm-args=" "  href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="AntTracer.jar" size="61498286" download="eager" />
+  </resources>
+  <applet-desc  width="960" height="656" main-class="com.javafx.main.NoJavaFXFallback"  name="AntTracer" >
+    <param name="requiredFXVersion" value="2.2+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="960" height="656" main-class="controller.AntController"  name="AntTracer" />
+  <update check="always"/>
+</jnlp>

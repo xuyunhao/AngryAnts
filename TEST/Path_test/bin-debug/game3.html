@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <SCRIPT src="http://java.com/js/dtjava.js"></SCRIPT>
+    <script>
+		function reportError(app, r) {
+			//ovewrite behavior for unsupported browser
+            var a = app.placeholder;
+            if (a != null && r.isUnsupportedBrowser()) {
+                var p = document.createElement('div');
+                p.id = "splash";
+                p.style.width  = app.width;
+                p.style.height = app.height;
+                p.style.background="red";
+				p.innerHTML = "This browser is not supported. <a href=\"game2.html\" style=\"color:white\">Click here</a> to play a Flash version of this game.";
+                //p.appendChild(
+                  //document.createTextNode("This browser is not supported. <a href=\"game2.html\">Click here</a> to play a Flash version of this game."));
+ 
+                //clear embedded application placeholder
+                while(a.hasChildNodes()) a.removeChild(a.firstChild);
+ 
+                //show custom message
+                a.appendChild(p);
+            } else {
+                //use default handlers otherwise
+                var def = new dtjava.Callbacks();
+                return def.onDeployError(app, r);
+            }
+        }
+	
+        function deployApplet() {
+	    dtjava.embed(	
+	        {	id: "appId",
+				url: "AntTracer.jnlp",
+				width: 960,
+				height: 656,
+                jnlp_content : 'PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPGpubHAgc3BlYz0iMS4wIiB4bWxuczpqZng9Imh0dHA6Ly9qYXZhZnguY29tIiBocmVmPSJBbnRUcmFjZXIuam5scCI+CiAgPGluZm9ybWF0aW9uPgogICAgPHRpdGxlPkFudFRyYWNlcjwvdGl0bGU+CiAgICA8dmVuZG9yPkNpdGl6ZW4gU2NpZW50aXN0cyBmb3IgVHJhamVjdG9yeSBBbmFseXNpczwvdmVuZG9yPgogICAgPGRlc2NyaXB0aW9uPkEgZ2FtZSBpbnZvbHZpbmcgdHJhY2luZyBhbnRzIGluIHZpZGVvcy48L2Rlc2NyaXB0aW9uPgogICAgPG9mZmxpbmUtYWxsb3dlZC8+CiAgPC9pbmZvcm1hdGlvbj4KICA8cmVzb3VyY2VzPgogICAgPGpmeDpqYXZhZngtcnVudGltZSB2ZXJzaW9uPSIyLjIrIiBocmVmPSJodHRwOi8vamF2YWRsLnN1bi5jb20vd2ViYXBwcy9kb3dubG9hZC9HZXRGaWxlL2phdmFmeC1sYXRlc3Qvd2luZG93cy1pNTg2L2phdmFmeDIuam5scCIvPgogIDwvcmVzb3VyY2VzPgogIDxyZXNvdXJjZXM+CiAgICA8ajJzZSB2ZXJzaW9uPSIxLjYrIiBqYXZhLXZtLWFyZ3M9IiAiICBocmVmPSJodHRwOi8vamF2YS5zdW4uY29tL3Byb2R1Y3RzL2F1dG9kbC9qMnNlIi8+CiAgICA8amFyIGhyZWY9IkFudFRyYWNlci5qYXIiIHNpemU9IjYxNDk4Mjg2IiBkb3dubG9hZD0iZWFnZXIiIC8+CiAgPC9yZXNvdXJjZXM+CiAgPGFwcGxldC1kZXNjICB3aWR0aD0iOTYwIiBoZWlnaHQ9IjY1NiIgbWFpbi1jbGFzcz0iY29tLmphdmFmeC5tYWluLk5vSmF2YUZYRmFsbGJhY2siICBuYW1lPSJBbnRUcmFjZXIiID4KICAgIDxwYXJhbSBuYW1lPSJyZXF1aXJlZEZYVmVyc2lvbiIgdmFsdWU9IjIuMisiLz4KICA8L2FwcGxldC1kZXNjPgogIDxqZng6amF2YWZ4LWRlc2MgIHdpZHRoPSI5NjAiIGhlaWdodD0iNjU2IiBtYWluLWNsYXNzPSJjb250cm9sbGVyLkFudENvbnRyb2xsZXIiICBuYW1lPSJBbnRUcmFjZXIiIC8+CiAgPHVwZGF0ZSBjaGVjaz0iYWx3YXlzIi8+Cjwvam5scD4K'
+            ,
+				placeholder: "javafx-app-placeholder"
+			},
+			{
+				javafx: "2.2+",
+				jvmargs: ""
+			},
+			{
+				onDeployError: reportError
+			}
+	    );
+	}
+	dtjava.addOnloadCallback(deployApplet);
+    </script>
+	<meta http-equiv="content-type"
+ 		content="text/html; charset=ISO-8859-1">
+  	<title>Citizen Scientists for Trajectory Analysis</title>
+  	<link rel="stylesheet" type="text/css" href="style.css" media="screen">
+</head>
+<body style="color: rgb(0, 0, 0);" link="#0000ee" vlink="#551a8b"
+ 		alink="#ee0000">
+	<div id="wrapper">
+	<div style="background-color: rgb(204, 204, 255);" id="header">
+	<h1><font color="#f05588"><span style="color: rgb(102, 0, 204);">Citizen
+		Scientists for Trajectory Analysis</span><br>
+	</font></h1>
+	<div id="menu">
+	<ul id="nav">
+		<li style="background-color: rgb(153, 255, 153);">
+			<a href="index.html">Home</a></li>
+  		<li><a href="game.html">Game</a></li>
+  		<li><a href="people.html">People</a></li>
+  		<li><a href="downloads.html">Downloads</a></li>
+  		<li><a href="downloads.html">Downloads</a></li>
+		<li><a href="faq.html">FAQ</a></li>
+	</ul>
+	</div>
+	</div>
+	
+	<div id="content">
+		<br>
+		<h2 align="center"><font size="4" color="#000000">AntTracker Game
+			</font><br>
+		</h2>
+		<br>
+		<br>
+
+    		<!-- AntTracer applet inserted here -->
+    		<div align="center" id='javafx-app-placeholder'></div>
+
+        	<br />
+
+		Having trouble loading or playing the game? Consult the 
+		<a href="faq.html" target="_blank">FAQ</a>.
+		
+		<dl>
+		<dt><strong>Play Instructions:</strong></dt>
+	    <dd>	
+		<ul type="circle">
+		<li>The ant to be tracked is circled in red.</li>
+	   	<li>To progress the video on the foremost frame (signified by
+		a disabled right arrow button), aim for the <strong>midsection</strong> of the ant
+		and click.</li>
+		<li>After any click on the video, the video will play for the next 
+		second during which clicking is disabled.</li>
+	   	<li>Jump-and-seek clicks in previous frames by clicking the navigation arrow buttons
+			or pushing the keyboard arrows.</li>
+		<li>The most recent click may be undone on the second foremost frame through the 
+			right-click menu or with the key combination 'Ctrl-Z'.
+	   	<li>The playback speed slider can be adjusted at any time during the game.</li>
+		<li>Toggle the show path button for a visual overlay of the linked clicks so far.</li>
+  		</ul>
+ 		</dd>
+		</dl>
+
+	<!-- end content -->
+	</div>
+	<!-- end wrapper -->
+	</div>
+</body>
+</html>

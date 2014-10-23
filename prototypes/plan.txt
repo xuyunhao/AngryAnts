@@ -1,0 +1,29 @@
+AngryAnts Prototypes
+
+(1) tech prototype got the game streaming YouTube video on Android and iOS devices
+
+(2) Polished version of the tool now on the website
+
+-----
+
+Future prototypes
+
+(1) control testing - figure out different control ideas:
+	- point and click
+	- point, click and drag
+	- move avatar around screen with keyboard
+	- use GIRP-style where you press keys toward direction
+(2) game ideas
+	- wario ware - last resort
+	- rhythm game ideas
+	- give ants individual identity, which allows for a collection/achivement system
+	- have the player name specific ants?
+	- Set the game up as a puzzle game, or possibly, a detective mystery game.
+
+-----
+
+Ideas:
+
+- merge all playback speeds into one video, and record the positions when they start and end.
+
+-

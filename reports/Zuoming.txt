@@ -1,0 +1,85 @@
+Week of 1/30:
+Worked on email to send to Ming Shin for info on automated solution. Waiting for Yunhao's input.
+Researched ant behavior (admittedly via Wikipedia)
+Brainstormed questions for biologists, delivered to Livio.
+Considering and researching the possibility of using locationing services on mobile devices as a control method.
+Considering the possibility of framing ant-tracking as a automonously generated mystery story,
+
+Week of 2/6:
+Looked at Biologist meeting notes to come up with new questions to be sent to Min Shin. Add acknowledgement of Min Shin's previous contribution to email.
+Sent email to Min Shin, still waiting for reply.
+Starting to search for a second set of ground truth for the second video we received from Min Shin previously. 
+Put biologist video labeling ant behaviors to other team member's knowledge.
+Watched ant documentary to familarize with subject of ant behavior.
+Meeting w/ Livio on 2/1 on possible ideas.
+Downloaded several apps to look into the accuracy of Geo-location on the Ipad.
+Cheked out Csikszentmihalyi's "Flow: The Psychology of Optimal Experience" for later reference.
+
+Week 2/13
+Started reading about theory of flow.
+Looking into implementing GPS idea 
+
+Goals for week of 2/20:
+Register for google Latitue and see whether its geolocation feature can be used for ant-tracking.
+If viable, try out programming a geo-location program that allows for real-location based tracking. (may need to find an Android phone first)
+Look into the idea of making the ant game a knowledge-based game.
+Read Mihaly Csikszentmihalyi's Flow theory to see whether concept of flow can be applied to the game.
+
+
+Note: what the biologists want to know:
+When the ant has met
+Better to track the ant by dragging to the head (orientation) (Is positioning system is still possible?)
+Question on figuring out different types of ants.
+Activities that the ants are engated in (communicating, grooming, feeding, tending after ant eggs)
+Different question depending on ant is colored or not
+How to identify the behavior of the ant they want to find out (recognize grooming and communication patterns)
+Does automated solution work for both color and non-colored?
+Do we have one complete long history?
+
+Week of 2/27
+Looked into honors undergrad research grants for mac purchase (conclude unlikely)
+Found contact to email for iOS license.
+
+Week of 3/6
+Made contact for iOS license, add 2 prototype for scheme of sound effect and bounciness to the game interface.
+Contacted Yunhao about organizing gound truth, resent email to Min Shin about questions on automated solutions.
+
+Week of 3/12
+Added 2 prototypes for feedback in ants code.
+
+Week of 3/20
+Scheduled time with Homer to meet up for iOS licensing.
+Cloned example code for Juicy feedback from github.
+Worked on organiazing current state of ground truth videos.
+
+Goals for week of 3/27
+Find the state of december videos.
+Have a solid schedule and approach to prototyping juicy feedback features.
+Compile juiciness example program.
+
+Week of 3/27
+Organized both videos with ground truths into the angryAnts dropbox folder.
+Writing an explanation for interpreting the GT data for the Janurary video in the same directory as the video.
+Made prototyping plans for juicy interface schemes.
+Abandoned compiling juicy interface example problem when the program seems too complex to get to work.
+Attempted to fix security violation (though the fix was careless and introduced a bug of its own)
+Set up personal IPad and lab computer for iOS development, obtained iOS certificate for development from Homer.
+
+Week of 4/3
+Worked w/ Livio to convert a simple iOS program from flash to iPad.
+Emailed Min Shin about the interpolation method used in new ground truth.
+Interface prototype in progress.
+
+Week of 4/10
+Added 4 music tracks to interface prototype.
+Added "fancy" line drawing to game.
+
+Week of 4/17
+Interface improvements to the website.
+
+Week of 4/24
+Added music, SE, higher video quality, and additional version of graphics to current version on website.
+Updated download and game page of the website to include the new paper and "contact us" link.
+
+Week of 5/1
+Added credits of the music to the website

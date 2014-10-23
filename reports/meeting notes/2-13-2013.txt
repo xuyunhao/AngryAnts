@@ -1,0 +1,25 @@
+Ant notes:
+Livio's idea:   
+	introduction Video to try to provide Educaitional experience
+	Use interest in reasearch to get people to be more interested
+	Tracking all ants at the same time.
+	Provide 1-3 hours of gameplay
+Response:	
+	Do not want to lose audience who want to lose long time investment
+	Possible that some ask friends/people to do it not as a game, but as a service
+	Even an hour may be too long, in that case
+Another approach:
+	Use juiciness (excessive interface feedback) to make the game more interesting?	
+	Similar to solitare/bejeweled/popcap games
+	Mindless activity
+Compromise:
+	Try out these and the other prototypes- try out both "stupid version and smart version"
+	Want to get the system working in the meantime, and possibly soon so the game can be a service.
+	Try to get to the stage where you can develop a new level of the game.
+Others:
+	Need to figure out how to accurately measure how long they are on the page, either using refresh or flash.
+Goals:
+	Continue thinking about big-picture designs, but think about the current design a lot too. Don't try to take a big risk.
+	Continue making plans, but keep developing the current one, which isn't bad on its own.
+	Want to develop for Ipad, either needs to use HTML5 or native code (But is a there a Youtube API?).
+	By next week, try to look at Ipad and investigate on Juiciness.

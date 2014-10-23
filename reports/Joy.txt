@@ -1,0 +1,83 @@
+Week of 01/23/13 - 01/29/13:
+- Looked into potential server alternatives (if we will be storing information for other
+versions of the game on our database, we'll need something faster and with more space)
+	* Amazon EC2 information at http://aws.amazon.com/ec2/
+
+- A way to let players initialize ant starting points
+	* "Count the ants": let the players click on all of the ants (possibly within a 
+	time limit, to make it more game-like). With brand-new videos, the player would 
+	obviously have to play this type of mini-game first before doing any path tracing. 
+	The danger of this comes if we just received a new video where no ants have been 
+	initialized and the player clicks in totally wrong locations. Also, if ants start 
+	on top of each other, then even after many players selecting starting points, it 
+	may be difficult to determine the average point within the points that determine a 
+	single ant. We would need to take the average of groups of points that are very 
+	close to each other to determine where the ant's starting location is. If 
+	possible, it would be helpful to know how many ants appear in the video so that we 
+	can do some very primitive error checking that all ants were initialized.
+
+##########################################################################################
+Week of 01/30/13 - 02/05/13
+- Reviewed some of the provided videos of ant behavior
+
+- A (very, very basic) way to check for various ant activities
+	* If the click is roughly in the same area for some number of frames (~5?), ask 
+	the player to select an activity that ant may be engaged in (e.g. feeding, 
+	grooming, etc.) . This may be asked in some sort of pop-up window with the options 
+	listed (like in Paul's old version of the game). In the future, we may want to see 
+	if we can determine ways to ask a player more specifically (based on what we can 
+	see from the videos about these activities), but this seems more like a computer 
+	vision problem. Ideally, there should be some way to identify patterns. And of
+	course, there needs to be some tutorial (could just put video provided by biologists
+	up) so that players can identify different activities.
+
+	* After they choose an option, we can ask additional questions. For example, if 
+	the player selected "Grooming," then we'd need to ask where the other ant being 
+	groomed (or doing the grooming) is located. This may take away the need for some 
+	drag-to-head version of the game since we could just ask players to click on the 
+	ant that this current ant is interacting with.
+
+- To initialize ants in a specific order
+	* When "Count the ants" isn't enough (it should be sufficient for non-colored ant 
+	colonies, but not for colored ants with existing data), display a simple drawing 
+	with the appropriate color spots (as illustrated by the biologists) instead of 
+	just asking by name. The drawing would be just a top-down view of an ant with four 
+	spots that can be changed to any of the six colors. The problem with names is just 
+	that players may have trouble remembering how the order that those colors are
+	specified in corresponds to the different parts of the ant, so a simple 
+	illustration would be more helpful.
+
+- Verification and Points
+	* On a side note, since the verification is now in-game, it should be possible to 
+	offer some sort of points system based on that average Euclidean distance. It could 
+	be something as simple as subtracting that distance from some greater constant. What 
+	I mean is, just say that the reported distance was something like 7, then we could 
+	give the player a score of 100 - 7 = 93 points. This is not urgent, but may be
+	worth considering in future versions of the game since we had previously hoped to
+	implement some sort of system.
+
+- TODO: 
+	* Continue looking into AS3
+	* Watch ant documentary
+
+##########################################################################################
+Week of 02/06/13 - 02/12/13
+- Watched ant documentary
+
+- Reviewed old php code
+
+- TODO:
+	* Implement version of the game that asks players to initiate ant starting points 
+	and colors
+		> For the first couple of times a video is used, we need to ask players to
+		list out all of the color combinations for ants. After this has been done
+		a few times, we no longer need to ask players to type in colors. At this
+		point, we'll trust that players have answered appropriately, and we'll
+		only have players find each ant with the specified color combination.
+
+		> So, the first part, "counting the ants" means that players have to type
+		in the color combination for that ant. And then, the next part is the actual
+		ant initialization where players have to click on the ant that matches
+		the color description. We could split this up into two different game modes
+		where you have to list out all of the colors before you unlock the actual
+		initialization mode.

@@ -1,0 +1,89 @@
+\begin{thebibliography}{10}
+
+\bibitem{Alt03}
+Helmut Alt, Alon Efrat, Gunter Rote, and Carola Wenk.
+\newblock Matching planar maps, 2003.
+
+\bibitem{arthur2007k}
+David Arthur and Sergei Vassilvitskii.
+\newblock k-means++: The advantages of careful seeding.
+\newblock In {\em Proceedings of the eighteenth annual ACM-SIAM symposium on
+  Discrete algorithms}, pages 1027--1035. Society for Industrial and Applied
+  Mathematics, 2007.
+
+\bibitem{Buchin10}
+Kevin Buchin, Maike Buchin, Marc Van~Kreveld, Maarten L\"{o}ffler, Rodrigo~I.
+  Silveira, Carola Wenk, and Lionov Wiratma.
+\newblock Median trajectories.
+\newblock In {\em Proceedings of the 18th annual European conference on
+  Algorithms: Part I}, ESA'10, pages 463--474, Berlin, Heidelberg, 2010.
+  Springer-Verlag.
+
+\bibitem{Buchin09}
+Kevin Buchin, Maike Buchin, and Yusu Wang.
+\newblock Exact algorithm for partial curve matching via the fréchet distance.
+\newblock In {\em Proc. 20th ACM-SIAM Symposium on Discrete Algorithms}, 2009.
+
+\bibitem{Joy12}
+Joy Chen, Ryan Compton, Aprana Das, Yi~Huang, Stephen Kobourov, Paul Shen,
+  Sankar Veeramoni, and Yunhao Yu.
+\newblock Angry ants: A citizen science approach to computing accurate averge
+  trajectories.
+\newblock {\em arXiv: 1212.0935vl [cs.CG]}, 2012.
+
+\bibitem{Cruz13}
+Livio De~La Cruz, Stephen Kobourov, Sergey Pupyrev, Paul Shen, and Sankar
+  Veeramoni.
+\newblock Angry ants: An approach for the accurate average trajectories using
+  citizen science.
+\newblock In {\em Submitted to European Symposium on Algorithms ESA 2013},
+  2013.
+
+\bibitem{Driemel10}
+Anne Driemel, Sariel Har-Peled, and Carola Wenk.
+\newblock Approximating the fr{\'e}chet distance for realistic curves in near
+  linear time.
+\newblock {\em CoRR}, abs/1003.0460, 2010.
+
+\bibitem{Fletcher11}
+M.~Fletcher, A.~Dornhaus, and M.C. Shin.
+\newblock Multiple ant tracking with global foreground maximization and
+  variable target proposal distribution.
+\newblock In {\em Applications of Computer Vision (WACV), 2011 IEEE Workshop
+  on}, pages 570 --576, jan. 2011.
+
+\bibitem{Maitra09}
+P.~Maitra, S.~Schneider, and M.C. Shin.
+\newblock Robust bee tracking with adaptive appearance template and
+  geometry-constrained resampling.
+\newblock In {\em Applications of Computer Vision (WACV), 2009 Workshop on},
+  pages 1 --6, dec. 2009.
+
+\bibitem{Morris}
+Scott Morris and Kobus Barnard.
+\newblock Finding trails.
+
+\bibitem{Poff12}
+C.~Poff, H.~Nguyen, T.~Kang, and M.C. Shin.
+\newblock Efficient tracking of ants in long video with gpu and interaction.
+\newblock In {\em Applications of Computer Vision (WACV), 2012 IEEE Workshop
+  on}, pages 57 --62, jan. 2012.
+
+\bibitem{sibson1973slink}
+Robin Sibson.
+\newblock Slink: an optimally efficient algorithm for the single-link cluster
+  method.
+\newblock {\em The Computer Journal}, 16(1):30--34, 1973.
+
+\bibitem{Yilmaz06}
+Alper Yilmaz, Omar Javed, and Mubarak Shah.
+\newblock Object tracking: A survey.
+\newblock {\em ACM Comput. Surv.}, 38(4), December 2006.
+
+\bibitem{Zuria08}
+I.~Zuriarrain, F.~Lerasle, N.~Arana, and M.~Devy.
+\newblock An mcmc-based particle filter for multiple person tracking.
+\newblock In {\em Pattern Recognition, 2008. ICPR 2008. 19th International
+  Conference on}, pages 1 --4, dec. 2008.
+
+\end{thebibliography}

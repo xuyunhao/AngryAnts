@@ -1,0 +1,5 @@
+package model;
+
+public enum Behavior {
+	NONE, BUILDING, BROOD_CARE, FEEDING, SELF_GROOMING, INTERACTIVE_GROOMING, FOOD_EXCHANGE;
+}

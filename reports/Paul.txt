@@ -1,0 +1,58 @@
+Week of 01/28/13
+	- Implemented in-game path validation: average Euclidean distance between user clicks and known points
+
+Week of 02/04/13
+	- Look into pushing the boundary of what ActionScript3 (AS3) is capable of, 
+		i.e. what verification algorithms it can support, how long the process will take
+
+Week of 02/11/13
+	- Outlined short-term plan
+	- Drafted schema for database to be user with new game
+
+Week of 02/18/13
+	- Set-up Mac Mini in research lab (gs 756) with X-code
+
+Week of 02/25/13
+	- Implemented database in MySql using WampServer
+
+Week of 03/13/13
+	- Wrote Windows batch script that uses ffmpeg to convert a video to run at 25 fps
+	- Started learning PHP
+	- Researched dynamic web pages using PHP, we can give each separate group a URL like
+		http://cgi.cs.arizona.edu/projects/angryants/game.php?group=1
+	then store their group id in either a PHP session or a cookie and reference the id in other PHP
+	scripts so that for example, the game only fetches videos belonging to that group from the database
+
+Hours (03/18-03/31): 18
+Week of 03/20/13
+	- Wrote batch script to convert videos to play at 25, 50, and 100 fps 
+	- Uploaded colony05 and colony06 videos to YouTube
+	- Inserted to database: video header info, ants, ground truth for colony05
+	- Wrote PHP script to randomly select ant weighted by a pre-determined probability from database
+	- Modified game to receive assignment variables, PHP script to update database upon receiving path 
+
+Week of 03/27/13
+	- Updated game and php script so ground truth is sent to game on start
+	- Converted and uploaded 8x and 16x videos (200 and 400 fps)
+
+Hours (04/01-04/14): 12.5
+Week of 04/03/13
+	- updated database for relation integrity
+	- added `fact` table to database so facts can be associated with relevant ants or videos
+
+Week of 04/10/13
+	- touched up website
+
+Hours (04/15-04/28): 16.5
+Week of 04/17/13
+	- proofread research paper
+	- added post-game replay animation to game
+
+Hours (04/29-05/12): 1
+Week of 05/01/13
+	- prepare SQL insert statements for 2nd video GT, PHP script for getting segment
+
+Long-term goals:
+	- Create web page to query database for certain path data and download as a .csv (probably use PHP)
+	- Dynamically generated web-pages for each research group.
+	

@@ -1,0 +1,16 @@
+Frechet.java is a command line version of finding Frechet Median.
+To compile:
+Run: $ javac Frechet.java
+To run:
+Run: $ java Frechet inputfile outputfile
+
+The inputfile are a list of all input curves. The format is:
+the first line is the number of way point
+then all way points begins with 0
+the next two lines are the starting and ending points
+Then the rest lines are list of all curves
+For each curve, it starts with the number of vertices, then one vertex per line.
+
+The outputfile are the median curve. The format is:
+for each curve, it starts with the number of vertices, then one vertex per line.
+it do not need to claim the number of curves, even if there are more than one.
